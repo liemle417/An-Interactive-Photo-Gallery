@@ -27,12 +27,16 @@ function createSearchFunction() {
     let a = ul.getElementsByTagName('a'); //Last, get the a list. So, we can access to the attribute 'data-caption'
 
     
-    // Loop through all list items, and hide those who don't match the search query
+    // Loop through all list items, and hide the one that don't match the search query
     for (let i = 0; i < a.length; i++) {
         let dataCaption = a[i].getAttribute('data-caption'); //get dataCaption info
         let dataCaptionCapitalize = dataCaption.toUpperCase(); //Make it capitalized
 
-        if (dataCaptionCapitalize.indexOf(inputCapitalize) == -1) { //-1 means "nothing is found." indexOf means search the capitalized info from input vs the capitalized dataCaption in the a list.
+        if (dataCaptionCapitalize.indexOf(inputCapitalize) == -1) { 
+            //-1 means "nothing is found." indexOf means search "the capitalized info from input" vs "the capitalized dataCaption in the a list".
+            //If nothing is found, the result is -1 
+            //Then do not display that item. 
+            
             li[i].style.display = "none";
         } else {
             li[i].style.display = "";
